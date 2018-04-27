@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/darkly/bootstrap.min.css"
+          integrity="sha256-bhD4/DdCApNAYlOpvKssUa2hD0Du8xrgOvtY4w25shM=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.9/css/lightgallery.min.css"
+          integrity="sha256-8rfHbJr+ju3Oc099jFJMR1xAPu8CTPHU8uP5J3X/VAY=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+          integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+    <style>
+      .card { cursor: pointer; }
+      .card .card-img-overlay { pointer-events: none; z-index: 3; }
+      .card.gallery:hover img { z-index: 1; }
+      .card.gallery:hover img:nth-child(1) { z-index: 2; }
+      .card.gallery:hover img:nth-child(2) { transform: rotate(-2deg) translateY(10px) translateX(-12px); }
+      .card.gallery:hover img:nth-child(3) { transform: rotate( 5deg) translateY(-8px) translateX( 12px); }
+      .card .gallery-indicator { position: absolute; right: 1em; text-shadow: 0 0 3px #202020; top: 1em; }
+      .card img:not(:first-child) { position: absolute; z-index: -1; }
+      .card img { transition: transform .3s ease-out; width: 100%; }
+      .nav-link i { color: rgba(255,255,255,.5); }
+
+      @media (max-width:  767.98px)                         { .w-proc { width: 50%; } }
+      @media (max-width:  991.98px) and (min-width: 768px)  { .w-proc { width: 33%; } }
+      @media (max-width: 1199.98px) and (min-width: 992px)  { .w-proc { width: 25%; } }
+      @media (min-width: 1200px)                            { .w-proc { width: 20%; } }
+    </style>
+
+    <title>Photos</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-bottom navbar-light bg-light">
+      <a class="navbar-brand" href="#">Photos</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" 
+              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="https://ahlers.me/"      title="Website"><i class="fas fa-home"></i> Homepage</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://knut.in/twitter" title="Twitter"><i class="fab fa-twitter"></i> @Luzifer</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row mt-3 mb-5">
+        <div class="col-md-12 d-flex justify-content-left flex-wrap" id="gallery-wrap"></div>
+      </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.1/popper.min.js"
+            integrity="sha256-ST2MecrXrJaAsqmfpk9XRQITlDoyMmUtgKBEndDisSc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs=" crossorigin="anonymous"></script>
+
+    <!-- LightGallery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.9/js/lightgallery.min.js"
+            integrity="sha256-nEcjdQ8bF4o/xKFCSWB9AkZ+HPWmCbkHNquhE5YNLds=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lg-hash/1.0.4/lg-hash.min.js"
+            integrity="sha256-rC6pN4R1omjrtMw06nFMCARzYqxu4yaVoRTHZa+wTzw=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lg-thumbnail/1.1.0/lg-thumbnail.min.js"
+            integrity="sha256-Ck/PWQUoHsc9d2X4yUALvrs71Qo5cs+gIHDWBl2Ggb8=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"
+            integrity="sha256-+JMHsXRyeTsws/tzbIh5YHQxRdKCuNjmvNcTFtY6DLc=" crossorigin="anonymous"></script>
+
+    <script src="app.js"></script>
+
+    <script id="album-template" type="text/x-handlebars-template">
+      <div class="card bg-light text-white w-proc float-left {{#ifGt images.length 1}}gallery{{/ifGt}}">
+        {{#each images}}
+        <img class="card-img border" 
+          src="{{thumbnail}}"
+          alt="{{title}}" 
+          data-src="{{fullsize}}">
+        {{/each}}
+        <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+          <h5>{{title}}</h5>
+          {{#ifGt images.length 1}}
+          <i class="fas fa-clone gallery-indicator"></i>
+          {{/ifGt}}
+        </div>
+      </div>
+    </script>
+
+    <script id="error-template" type="text/x-handlebars-template">
+      <div class="row justify-content-md-center">
+        <div class="col-xs-10 col-sm-8 col-md-6 col-lg-4">
+          <div class="alert alert-danger">{{message}}</div>
+        </div>
+      </div>
+    </script>
+
+  </body>
+</html>
