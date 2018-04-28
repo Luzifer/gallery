@@ -33,6 +33,9 @@ func getStorageByURI(uri string) (storage, error) {
 		// NoOp storage: Only logs requests
 		return logStorage{}, nil
 
+	case "s3":
+		return s3StorageFromURI(uri), nil
+
 	default:
 		return nil, fmt.Errorf("Storage scheme %q not defined", u.Scheme)
 	}
