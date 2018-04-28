@@ -9,7 +9,7 @@ class Gallery {
     this.optionset = {
       // General options
       download: false,
-      selector: 'img',
+      selector: '.img',
       // Thumbnails
       thumbnail: true,
       thumbWidth: 80,

@@ -26,6 +26,8 @@
       .card.gallery:hover img:nth-child(2) { transform: rotate(-2deg) translateY(10px) translateX(-12px); }
       .card.gallery:hover img:nth-child(3) { transform: rotate( 5deg) translateY(-8px) translateX( 12px); }
       .card .gallery-indicator { position: absolute; right: 1em; text-shadow: 0 0 3px #202020; top: 1em; }
+      .card .card-img-overlay h5 { text-shadow: 0 0 3px #202020; }
+      .card div.img { display: none; }
       .card img:not(:first-child) { position: absolute; z-index: -1; }
       .card img { transition: transform .3s ease-out; width: 100%; }
       .nav-link i { color: rgba(255,255,255,.5); }
@@ -41,7 +43,7 @@
   <body>
     <nav class="navbar navbar-expand-lg fixed-bottom navbar-light bg-light">
       <a class="navbar-brand" href="#">Photos</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" 
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
               data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
               aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -85,10 +87,17 @@
     <script id="album-template" type="text/x-handlebars-template">
       <div class="card bg-light text-white w-proc float-left {{#ifGt images.length 1}}gallery{{/ifGt}}">
         {{#each images}}
-        <img class="card-img border" 
+        {{#ifGt @index 2}}
+        <div class="card-img border img"
           src="{{thumbnail}}"
-          alt="{{title}}" 
+          alt="{{title}}"
+          data-src="{{fullsize}}"></div>
+        {{else}}
+        <img class="card-img border img"
+          src="{{thumbnail}}"
+          alt="{{title}}"
           data-src="{{fullsize}}">
+        {{/ifGt}}
         {{/each}}
         <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
           <h5>{{title}}</h5>
